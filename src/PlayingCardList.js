@@ -33,3 +33,4 @@ function CardTable() {
 CardTable.defaultProps = {};
 
 export default CardTable;
+

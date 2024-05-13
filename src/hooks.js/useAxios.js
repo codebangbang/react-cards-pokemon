@@ -3,14 +3,11 @@ import axios from "axios";
 
 function useAxios(baseUrl) {
   const [response, setResponse] = useState([]);
-
-  const addData = async (formatter = (data) => data, restOfUrl = "") => {
+  const addData = async (restOfUrl = "") => {
     const response = await axios.get(`${baseUrl}${restOfUrl}`);
-    setResponse((data) => [...data, formatter(response.data)]);
+    setResponse((data) => [...data, response.data]);
   };
-  const clearResponses = () => setResponse([]);
-
-  return [response, addData, clearResponses];
+  return [response, addData];
 }
 
 export default useAxios;
